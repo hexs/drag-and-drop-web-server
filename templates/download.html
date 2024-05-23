@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Drag Drop Download File</title>
+    {{ dropzone.load_css() }}
+    {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
+</head>
+
+<body>
+<a href="/upload">upload</a>
+<br>
+<a href="/download">download</a>
+<br>
+<h1>Download Files</h1>
+<ul>
+    {% for file in files %}
+    <li><a href="{{ url_for('download', filename=file) }}">{{ file }}</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>
