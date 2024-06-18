@@ -16,7 +16,7 @@
 <h1>Download Files</h1>
 <ul>
     {% for file in files %}
-    <li><a href="{{ url_for('download', filename=file) }}">{{ file }}</a></li>
+    <li><a href="download/{{ file }}">{{ file }}</a></li>
     {% endfor %}
 </ul>
 </body>
