@@ -1,4 +1,5 @@
 import os
+import socket
 from flask import Flask, render_template, request, send_from_directory
 from flask_dropzone import Dropzone
 
@@ -44,4 +45,6 @@ def download_file(filename):
 
 
 if __name__ == '__main__':
-    app.run('192.168.225.137', debug=True)
+    hostname = socket.gethostname()
+    ipv4_address = socket.gethostbyname(hostname)
+    app.run(f'{ipv4_address}', port=1000, debug=True)
