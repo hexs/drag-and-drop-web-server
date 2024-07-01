@@ -8,10 +8,11 @@ os.makedirs(os.path.join(basedir, 'uploads'), exist_ok=True)
 app = Flask(__name__)
 app.config.update(
     UPLOADED_PATH=os.path.join(basedir, 'uploads'),
-    DROPZONE_MAX_FILE_SIZE=1024,
-    DROPZONE_TIMEOUT=5 * 60 * 1000,
+    DROPZONE_MAX_FILE_SIZE=1024 * 1024,  # MB (1024 * 1024 == 1TB)
+    DROPZONE_TIMEOUT=1000 * 60 * 60 * 24,  # millisecond (1000 * 60 * 60 * 24 == 1day)
     DROPZONE_ALLOWED_FILE_CUSTOM=True,
-    DROPZONE_ALLOWED_FILE_TYPE=''
+    DROPZONE_ALLOWED_FILE_TYPE='',
+    DROPZONE_SERVE_LOCAL=True
 
 )
 dropzone = Dropzone(app)
